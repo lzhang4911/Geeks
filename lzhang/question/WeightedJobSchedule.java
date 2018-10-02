@@ -2,6 +2,8 @@ package lzhang.question;
 
 import java.util.Arrays;
 
+import lzhang.util.BaseUtil;
+
 /**
  * Each job has 3 attributes:
  *    startTime

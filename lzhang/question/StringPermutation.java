@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import wzhang.drive.Driver;
+import lzhang.util.BaseUtil;
 
 /**
  * Given an array of chars, {a, b, c, d, e, f}, find all permutations.
@@ -17,7 +17,7 @@ import wzhang.drive.Driver;
  * @author lzhang
  *
  */
-public class StringPermutation {
+public class StringPermutation extends BaseUtil {
 
     public static Collection<String> test() {
         char[] string = new char[] {'A', 'B', 'A'};
@@ -51,7 +51,7 @@ public class StringPermutation {
             // Already reached the end of the string. No more element to be considered. Add it to result set.
             permCount++; // count including dup
             result.add( new String(a) ); // collapse the dup due to use of HashSet 
-            Driver.print(a);
+            print(a);
         }
         
         for(int i = start; i < n; i++) {

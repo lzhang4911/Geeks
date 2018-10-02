@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
+import lzhang.util.BaseUtil;
+
 /**
  * A text message is encoded as numbers, A -> 1, ..., Z -> 27. So, a message "ABC"
  * will be converted to "123".

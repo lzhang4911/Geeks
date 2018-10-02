@@ -16,7 +16,7 @@ package lzhang.question;
  */
 public class HouseRobbery {
 
-    public static int robMax(int[] houseVal, int houses) {
+    public static int robMax(Integer[] houseVal, int houses) {
         if(houseVal == null || houses <= 0) {
             return 0;
         }
@@ -31,7 +31,7 @@ public class HouseRobbery {
     }
     
 //    private static int robMaxRecursion(int[] houseVal, int i, int n, int[] mem) {
-    private static int robMaxRecursion(int[] houseVal, int i, int n) {
+    private static int robMaxRecursion(Integer[] houseVal, int i, int n) {
         // no more house to rob
         if(i >= n || n <= 0 || houseVal == null) {
             return 0;
@@ -64,7 +64,7 @@ public class HouseRobbery {
      * @param houses
      * @return
      */
-    public static int robMaxIteration(int[] houseVal, int houses) {
+    public static int robMaxIteration(Integer[] houseVal, int houses) {
         // no house to rob
         if(houseVal == null || houses <= 0) {
             return 0;

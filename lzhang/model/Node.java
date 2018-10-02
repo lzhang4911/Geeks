@@ -43,6 +43,15 @@ public class Node<T> {
     }
     
     @Override
+    public boolean equals(Object o) {
+    	if(o == null || !(o instanceof Node)) return false;
+    	
+    	Node<?> that = (Node<?>)o;
+    	
+    	return this.data.equals(that.data);
+    }
+    
+    @Override
     public String toString() {
         return data.toString();
     }
@@ -56,5 +65,36 @@ public class Node<T> {
             temp = temp.next;
         }
         System.out.println("\n");
+    }
+    
+    /**
+     * Check if the linked list "head" contains a node referenced by pointer p
+     * 
+     * @param head
+     * @param p
+     * @return
+     */
+    public static <T> boolean contains(Node<T> head, Node<T> p) {
+    	if(head == null || p == null) return false;
+    	
+    	while(head != null) {
+    		if(head == p) return true;
+    		
+    		head = head.next;
+    	}
+    	
+    	return false;
+    }
+    
+    public static <T> int size(Node<T> head) {
+    	int size = 0;
+    	
+    	while(head != null) {
+    		size++;
+    		
+    		head = head.next;
+    	}
+    	
+    	return size;
     }
 }

@@ -3,7 +3,8 @@ package lzhang.question;
 import java.util.ArrayList;
 import java.util.List;
 
-import wzhang.model.BinaryNode;
+import lzhang.model.BinaryNode;
+import lzhang.util.BaseUtil;
 
 /**
  * https://www.geeksforgeeks.org/expression-tree/

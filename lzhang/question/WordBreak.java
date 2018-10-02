@@ -3,6 +3,8 @@ package lzhang.question;
 import java.util.HashSet;
 import java.util.Set;
 
+import lzhang.util.BaseUtil;
+
 /**
  * Given a sentence without spaces and a dictionary, find out how the sentence can
  * be broken into proper words.

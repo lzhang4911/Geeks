@@ -3,7 +3,7 @@ package lzhang.question;
 import java.util.HashMap;
 import java.util.Map;
 
-import wzhang.model.Node;
+import lzhang.model.Node;
 
 public class LRU {
     /*

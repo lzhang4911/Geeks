@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
+import lzhang.util.BaseUtil;
+
 // 07/31/2018: VMware phone interview
 
 //We encode a string, s, by performing the following sequence of actions:

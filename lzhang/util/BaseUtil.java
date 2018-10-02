@@ -1,6 +1,6 @@
-package lzhang.question;
+package lzhang.util;
 
-import wzhang.model.Node;
+import lzhang.model.Node;
 
 /**
  * Provide some basic utilities here.
@@ -13,13 +13,21 @@ public class BaseUtil {
         System.out.println(s);
     }
     
-//    public static <T> void print(Node<T> n) {
-//        if(n == null) return;
-//        
-//        System.out.println("Node data " + n.data);
-//        
-//        print(n.next);
-//    }
+    public static void print(char[] arr) {
+    	System.out.print("[");
+        for( char i : arr) {
+        	System.out.print(i + ", ");
+        }
+        System.out.println("]");
+    }
+    
+    public static <T> void print(T[] arr) {
+    	System.out.print("[");
+        for( T i : arr) {
+        	System.out.print(i + ", ");
+        }
+        System.out.println("]");
+    }
     
     public static <T> void print(Node<T> n) {
         if(n == null) return;

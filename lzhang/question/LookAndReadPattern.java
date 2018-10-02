@@ -1,5 +1,7 @@
 package lzhang.question;
 
+import lzhang.util.BaseUtil;
+
 /**
 Find the n’th term in Look-and-say (Or Count and Say) Sequence. The look-and-say sequence is the sequence of below integers:
 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, …

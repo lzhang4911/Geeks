@@ -3,8 +3,8 @@ package lzhang.question;
 import java.util.HashMap;
 import java.util.Map;
 
-import wzhang.model.Node;
-import wzhang.question.linkedlist.DLL;
+import lzhang.model.Node;
+import lzhang.question.linkedlist.DLL;
 
 /**
  * As a cache utility, the only 2 methods are get() and put().

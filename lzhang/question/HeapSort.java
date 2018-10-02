@@ -1,15 +1,15 @@
 package lzhang.question;
 
 public class HeapSort {
-    public static int[] test() {
+    public static Integer[] test() {
         //int arr[] = {12, 11, 13, 5, 6, 7};
-        int arr[] = {7,11, 6, 12, 5, 13};
+    	Integer arr[] = {7,11, 6, 12, 5, 13};
         
-        int[]  res = sort(arr);
+        Integer[]  res = sort(arr);
         return res;
     }
 
-    private static int[] sort(int[] arr) {
+    private static Integer[] sort(Integer[] arr) {
         if(arr == null || arr.length == 1) {
             return arr;
         }
@@ -54,7 +54,7 @@ public class HeapSort {
     
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
-    private static void heapify(int arr[], int n, int i)
+    private static void heapify(Integer arr[], int n, int i)
     {
         int largest = i;  // Initialize largest as root
         int l = 2*i + 1;  // left = 2*i + 1

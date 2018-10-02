@@ -148,7 +148,7 @@ public class Combination {
         
         /*
          * Exclude the current arr[arrIndex] from data[dataIndex] by keeping dataIndex
-         * unchanged and advance both pointer arrIndex only
+         * unchanged and advance pointer arrIndex only
          */
         recursive_2(arr, arrIndex + 1, length, data, dataIndex, combinations);
     }

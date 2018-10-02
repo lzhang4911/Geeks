@@ -1,5 +1,7 @@
 package lzhang.question;
 
+import lzhang.util.BaseUtil;
+
 /**
  * Find if string is K-Palindrome or not
  * Given a string, find out if the string is K-Palindrome or not. A K-palindrome string 

@@ -1,5 +1,7 @@
 package lzhang.question;
 
+import lzhang.util.BaseUtil;
+
 /**
  * Given an integer, count all of the bits that are set to 1.
  *

@@ -17,10 +17,4 @@ public class Util {
 		
 		return sb.toString();
 	}
-	
-	public static void main(String[] args) throws Exception {
-		String temp = generateRadomString(100);
-		
-		System.out.println("Temp: " + temp);
-	}
 }

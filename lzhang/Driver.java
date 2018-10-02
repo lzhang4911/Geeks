@@ -7,163 +7,121 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+import lzhang.model.AnyBinaryTree;
+import lzhang.model.BinaryNode;
+import lzhang.model.BinarySearchTree;
+import lzhang.model.MaxBarReact;
+import lzhang.model.Node;
+import lzhang.question.BuddyBitmap;
+import lzhang.question.ClimbStairs;
+import lzhang.question.Combination;
+import lzhang.question.CountSetBits;
+import lzhang.question.DecodeDigits;
+import lzhang.question.DecodeDigits2;
+import lzhang.question.DecodeString;
+import lzhang.question.FriendCircle;
+import lzhang.question.GasStationCircle;
+import lzhang.question.HeapSort;
+import lzhang.question.HistogramRectangle;
+import lzhang.question.HouseRobbery;
+import lzhang.question.JobAssign;
+import lzhang.question.Knapsack;
+import lzhang.question.LFU;
+import lzhang.question.LRU2;
+import lzhang.question.LcsKthPalindrome;
+import lzhang.question.LongestCommonString;
+import lzhang.question.LookAndReadPattern;
+import lzhang.question.MergeIntervals;
+import lzhang.question.NumericExpression;
+import lzhang.question.Palindrome;
+import lzhang.question.PalindromeNum;
+import lzhang.question.Parentheses;
+import lzhang.question.Permutation;
+import lzhang.question.PowerSet;
+import lzhang.question.StringMatch;
+import lzhang.question.StringPermutation;
 import lzhang.question.SumFromCombination;
+import lzhang.question.TextDraw;
+import lzhang.question.TrackMaxInStack;
 import lzhang.question.WaterJar;
-import wzhang.model.AnyBinaryTree;
-import wzhang.model.BinaryNode;
-import wzhang.model.BinarySearchTree;
-import wzhang.model.MaxBarReact;
-import wzhang.model.Node;
-import wzhang.question.BuddyBitmap;
-import wzhang.question.ClimbStairs;
-import wzhang.question.CountSetBits;
-import wzhang.question.DecodeDigits;
-import wzhang.question.DecodeDigits2;
-import wzhang.question.DecodeString;
-import wzhang.question.EggDrop;
-import wzhang.question.FriendCircle;
-import wzhang.question.GasStationCircle;
-import wzhang.question.HeapSort;
-import wzhang.question.HistogramRectangle;
-import wzhang.question.HouseRobbery;
-import wzhang.question.JobAssign;
-import wzhang.question.Knapsack;
-import wzhang.question.LFU;
-import wzhang.question.LRU2;
-import wzhang.question.LcsKthPalindrome;
-import wzhang.question.LongestCommonString;
-import wzhang.question.LookAndReadPattern;
-import wzhang.question.MergeIntervals;
-import wzhang.question.Palindrome;
-import wzhang.question.Parentheses;
-import wzhang.question.NumericExpression;
-import wzhang.question.PalindromeNum;
-import wzhang.question.Combination;
-import wzhang.question.Permutation;
-import wzhang.question.PowerSet;
-import wzhang.question.StringMatch;
-import wzhang.question.StringPermutation;
-import wzhang.question.TextDraw;
-import wzhang.question.TrackMaxInStack;
-import wzhang.question.WeightedJobSchedule;
-import wzhang.question.WordBreak;
-import wzhang.question.WordLadder;
-import wzhang.question.array.CitySkyline;
-import wzhang.question.array.CloseSumSubarray;
-import wzhang.question.array.GivenArrayAndTarget;
-import wzhang.question.array.IndexInSortedArray;
-import wzhang.question.array.KthElement;
-import wzhang.question.array.LongestAscendingSequence;
-import wzhang.question.array.LongestConsecutiveSequence;
-import wzhang.question.array.LongestIncreaseSubsequence;
-import wzhang.question.array.LongestSubstringWithNoRepeat;
-import wzhang.question.array.MaxHeapSort;
-import wzhang.question.array.MaxOverlapInterval;
-import wzhang.question.array.MaxSumNonAdjacentSequence;
-import wzhang.question.array.MaxSumSubarray;
-import wzhang.question.array.MaximumProductSubarray;
-import wzhang.question.array.MergeKsortedArrays;
-import wzhang.question.array.NearestSmallerLeft;
-import wzhang.question.array.RotateArray;
-import wzhang.question.array.SearchInRotated;
-import wzhang.question.array.SlidingWindowMaximum;
-import wzhang.question.dp.CoinChangeWays;
-import wzhang.question.dp.SnakeLadderGame;
-import wzhang.question.dp.StockBuySell;
-import wzhang.question.graph.ShortestPath;
-import wzhang.question.linkedlist.AddLinkLists;
-import wzhang.question.linkedlist.CircularLinkBreak;
-import wzhang.question.linkedlist.DeleteNode;
-import wzhang.question.linkedlist.FlattenBranchedList;
-import wzhang.question.linkedlist.List2Bst;
-import wzhang.question.linkedlist.MergeSortedLinkLists;
-import wzhang.question.linkedlist.PairSwap;
-import wzhang.question.linkedlist.RemoveSmallLeft;
-import wzhang.question.linkedlist.Reverse;
-import wzhang.question.linkedlist.ReverseInGroup;
-import wzhang.question.matrix.KnightMinSteps;
-import wzhang.question.matrix.MaxSubArea;
-import wzhang.question.matrix.MaxSumSubMatrix;
-import wzhang.question.matrix.PrintMatrixInSpiral;
-import wzhang.question.matrix.RotateMatrix;
-import wzhang.question.matrix.SurroundedRegions;
-import wzhang.question.string.Anagram;
-import wzhang.question.string.DictionaryBasedPassword;
-import wzhang.question.tree.BinaryTree2List;
-import wzhang.question.tree.BinaryTreeSize;
-import wzhang.question.tree.BstOperation;
-import wzhang.question.tree.CreateTreeFromArray;
-import wzhang.question.tree.FindNextBiggerKey;
-import wzhang.question.tree.HasSubtree;
-import wzhang.question.tree.InverseBt;
-import wzhang.question.tree.KthInBinaryTree;
-import wzhang.question.tree.KthLargest;
-import wzhang.question.tree.LCA;
-import wzhang.question.tree.LargestBst;
-import wzhang.question.tree.LeveledLinkedList;
-import wzhang.question.tree.MaxSubtreeAverage;
-import wzhang.question.tree.Merge;
-import wzhang.question.tree.Merge2Bst;
-import wzhang.question.tree.ModifyBtIntoPreorderLinkedList;
-import wzhang.question.tree.PreorderFullBinaryTreeDepth;
-import wzhang.question.tree.PrintRootToLeafPath;
-import wzhang.question.tree.PrintSideView;
-import wzhang.question.tree.SumAllPaths;
-import wzhang.question.tree.SumOf2InPathMatchesRoot;
-import wzhang.question.tree.SymmetrcTree;
-import wzhang.question.tree.TreeDiameter;
-import wzhang.question.tree.ValidateBst;
-import wzhang.question.tree.WordsPalindrome;
+import lzhang.question.WeightedJobSchedule;
+import lzhang.question.WordBreak;
+import lzhang.question.WordLadder;
+import lzhang.question.array.CitySkyline;
+import lzhang.question.array.CloseSumSubarray;
+import lzhang.question.array.EqualSumSubarray;
+import lzhang.question.array.GivenArrayAndTarget;
+import lzhang.question.array.IndexInSortedArray;
+import lzhang.question.array.KthElement;
+import lzhang.question.array.LongestAscendingSequence;
+import lzhang.question.array.LongestConsecutiveSequence;
+import lzhang.question.array.LongestIncreaseSubsequence;
+import lzhang.question.array.LongestSubstringWithNoRepeat;
+import lzhang.question.array.MaxHeapSort;
+import lzhang.question.array.MaxOverlapInterval;
+import lzhang.question.array.MaxSumNonAdjacentSequence;
+import lzhang.question.array.MaxSumSubarray;
+import lzhang.question.array.MaximumProductSubarray;
+import lzhang.question.array.MergeKsortedArrays;
+import lzhang.question.array.NearestSmallerLeft;
+import lzhang.question.array.RotateArray;
+import lzhang.question.array.SearchInRotated;
+import lzhang.question.array.SlidingWindowMaximum;
+import lzhang.question.dp.CoinChangeWays;
+import lzhang.question.dp.SnakeLadderGame;
+import lzhang.question.dp.StockBuySell;
+import lzhang.question.graph.ShortestPath;
+import lzhang.question.linkedlist.AddLinkLists;
+import lzhang.question.linkedlist.CircularLinkBreak;
+import lzhang.question.linkedlist.DeleteNode;
+import lzhang.question.linkedlist.FlattenBranchedList;
+import lzhang.question.linkedlist.List2Bst;
+import lzhang.question.linkedlist.MergeSortedLinkLists;
+import lzhang.question.linkedlist.PairSwap;
+import lzhang.question.linkedlist.RemoveSmallLeft;
+import lzhang.question.linkedlist.Reverse;
+import lzhang.question.linkedlist.ReverseInGroup;
+import lzhang.question.linkedlist.ReverseListInGroup;
+import lzhang.question.matrix.KnightMinSteps;
+import lzhang.question.matrix.MaxSubArea;
+import lzhang.question.matrix.MaxSumSubMatrix;
+import lzhang.question.matrix.PrintMatrixInSpiral;
+import lzhang.question.matrix.RotateMatrix;
+import lzhang.question.matrix.SurroundedRegions;
+import lzhang.question.string.Anagram;
+import lzhang.question.string.DictionaryBasedPassword;
+import lzhang.question.tree.BinaryTree2List;
+import lzhang.question.tree.BinaryTreeSize;
+import lzhang.question.tree.BstOperation;
+import lzhang.question.tree.CreateTreeFromArray;
+import lzhang.question.tree.FindNextBiggerKey;
+import lzhang.question.tree.HasSubtree;
+import lzhang.question.tree.InverseBt;
+import lzhang.question.tree.KthInBinaryTree;
+import lzhang.question.tree.KthLargest;
+import lzhang.question.tree.LCA;
+import lzhang.question.tree.LargestBst;
+import lzhang.question.tree.LeveledLinkedList;
+import lzhang.question.tree.MaxSubtreeAverage;
+import lzhang.question.tree.Merge;
+import lzhang.question.tree.Merge2Bst;
+import lzhang.question.tree.ModifyBtIntoPreorderLinkedList;
+import lzhang.question.tree.PreorderFullBinaryTreeDepth;
+import lzhang.question.tree.PrintRootToLeafPath;
+import lzhang.question.tree.PrintSideView;
+import lzhang.question.tree.SumAllPaths;
+import lzhang.question.tree.SumOf2InPathMatchesRoot;
+import lzhang.question.tree.SymmetrcTree;
+import lzhang.question.tree.TreeDiameter;
+import lzhang.question.tree.ValidateBst;
+import lzhang.question.tree.WordsPalindrome;
+import lzhang.util.BaseUtil;
 
-public class Driver {
-    static class A {
-//        public A() {
-//            print("class A default constructor called");
-//        }
-        
-        public A(int a) {
-            print("class A constructor called: " + a);
-        }
-    }
-    
-    static class B extends A {
-        public B(int a) {
-            super(a);
-            print("class B constructor called: " + a);
-        }
-    }
-    
-	private static void print(String text) {
-		System.out.println(text);
-	}
-	
-	private static void print(int[] numbers) {
-	    for( int i : numbers) {
-	        System.out.print(i + ", ");
-	    }
-	    System.out.println("");
-    }
-	
-	public static void print(char[] a) {
-        for( char i : a) {
-            System.out.print(i + ", ");
-        }
-        System.out.println("");
-    }
-//	
-//	public static <T> void print(T[] numbers) {
-//        for( T i : numbers) {
-//            System.out.print(i + ", ");
-//        }
-//        System.out.println("");
-//    }
-
+public class Driver extends BaseUtil {
 	public static void main(String[] args) throws Exception {
 	    // create empty String array
 	    String[] list = new String[0];
 	    java.util.Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);
-	    
-	    B b = new B(10);
 	    
 	    /*
 	     * String literals are stored in a special memory region "String pool". However,
@@ -194,10 +152,10 @@ public class Driver {
 		
 		int [] a = {-2, -3, 4, -1, -2, 1, 5, -3};
 		int c = findMaxSumInSubarray(a);
-		System.out.println("Maximum contiguous sum is " + c);
+		print("Maximum contiguous sum is " + c);
 		
 //		int c = findMaxSumInSubarray_1(a);
-//		System.out.println("Maximum contiguous sum is " + c);
+//		System.out.print("Maximum contiguous sum is " + c);
         
 //		printNextGreaterElement(new int[] {13,7,6,12});
 		
@@ -225,37 +183,37 @@ public class Driver {
 //		removeAdjacentDuplicatesFromString("aaabcccabbdccdmeffem");
 		
 		// level 0: 10
-		BinaryNode node = new BinaryNode(10);
+		BinaryNode<Integer> node = new BinaryNode<>(10);
 		
 		// level 1: 8, 12
-		node.left = new BinaryNode(8);
-		node.right = new BinaryNode(12);
+		node.left = new BinaryNode<Integer>(8);
+		node.right = new BinaryNode<Integer>(12);
 		
 		// level 2: 3, 5, 11
-		node.left.left = new BinaryNode(3);
-		node.left.right = new BinaryNode(5);
+		node.left.left = new BinaryNode<Integer>(3);
+		node.left.right = new BinaryNode<Integer>(5);
 		
-		node.right.left = new BinaryNode(11);
+		node.right.left = new BinaryNode<Integer>(11);
 		
 		// level 24: 22, 20
-		node.left.right.left = new BinaryNode(24);
-		node.left.right.right = new BinaryNode(22);
-		node.right.left.right = new BinaryNode(20);
+		node.left.right.left = new BinaryNode<Integer>(24);
+		node.left.right.right = new BinaryNode<Integer>(22);
+		node.right.left.right = new BinaryNode<Integer>(20);
 		
 		// level 5: 40
-		node.right.left.right.left = new BinaryNode(40);
+		node.right.left.right.left = new BinaryNode<Integer>(40);
 		
 //		
-//		System.out.println("Fount " + findRootToLeafPathSum(node, 0, 23) );
+//		System.out.print("Fount " + findRootToLeafPathSum(node, 0, 23) );
 		
-//		System.out.println("BST depth " + bstDepth(node, 0) );
+//		System.out.print("BST depth " + bstDepth(node, 0) );
 		
-//		System.out.println("Max at depth 4: " + maxAtBstDepth(node, 0, 3) );
+//		System.out.print("Max at depth 4: " + maxAtBstDepth(node, 0, 3) );
 		
-		System.out.println("No. of paths: " + rootToLeafPathsMatchSum(node, 34) );
+		System.out.print("No. of paths: " + rootToLeafPathsMatchSum(node, 34) );
 		
 //		List<Integer> r = mergeSortedArrays(new int[]{3,5,7,10,12}, new int[]{2,6});
-//		System.out.println("Merge sort: " + r.toArray(new Integer[]{}) );
+//		System.out.print("Merge sort: " + r.toArray(new Integer[]{}) );
 		
 //		BinaryNode n1 = new BinaryNode(11);
 //		n1.left = new BinaryNode(22);
@@ -266,11 +224,11 @@ public class Driver {
 //		
 //		// cycle
 //		n3.right = n1;
-//		System.out.println("Found cycles: " + hasCycleInGraph(n1, new ArrayList<BinaryNode>()) );
+//		System.out.print("Found cycles: " + hasCycleInGraph(n1, new ArrayList<BinaryNode>()) );
 		
 		
 //		BinaryNode head = convertIntArrayToBst(new int[] {3,1,4,6,8,23,24,15,29});
-//		System.out.println("Longest subsequence " + bstDepth(head, 0));
+//		System.out.print("Longest subsequence " + bstDepth(head, 0));
 		
 //		int arr[] = {12, 11, 13, 5, 6, 7};
 //        int n = arr.length;
@@ -278,16 +236,16 @@ public class Driver {
 //        HeapSort ob = new HeapSort();
 //        ob.sort(arr);
 // 
-//        System.out.println("Sorted array is");
+//        System.out.print("Sorted array is");
 //        ob.printArray(arr);
 		
-		//System.out.println("Found triplet at given sum " + findTripletAtSum(arr, 24));
+		//System.out.print("Found triplet at given sum " + findTripletAtSum(arr, 24));
 //		String string = "this is the original!";
-//		System.out.println("The reverse of it: " + reverseString(string));
+//		System.out.print("The reverse of it: " + reverseString(string));
 		
-//		System.out.println("The permutations of ABCD: " + stringPermutations("ABCD", ""));
+//		System.out.print("The permutations of ABCD: " + stringPermutations("ABCD", ""));
 		
-//		System.out.println("after swap nibbles, 100 becomes " + swapNibbles((byte)100));
+//		System.out.print("after swap nibbles, 100 becomes " + swapNibbles((byte)100));
 		
 		// build 4 level tree
 //		BinaryNode node = new BinaryNode(0);
@@ -300,7 +258,7 @@ public class Driver {
 //		node.right = new BinaryNode(7);
 //		node.right.left = new BinaryNode(1);
 //		node.right.right = new BinaryNode(3);
-//		System.out.println("Sum at 3rd level: " + sumAtNLevel( node, 3) );
+//		System.out.print("Sum at 3rd level: " + sumAtNLevel( node, 3) );
 		
 		// delete node that equals the given value
 		Node<Integer> curNode = null, head = null;
@@ -322,11 +280,11 @@ public class Driver {
 //		deleteAllOccurances(head, 10);
 //		print(head);
 		
-		trackGreatestNumbers(new int[] {4, 12,20,22,4,6,2,55,65,12,23}, 5);
+		trackGreatestNumbers(new Integer[] {4, 12,20,22,4,6,2,55,65,12,23}, 5);
 		
 		//int hist[] = { 6, 2, 5, 4, 5, 1, 11 };
 		int hist[] = { 6, 2, 5, 4, 5, 1, 13 };
-        System.out.println("Maximum area is " + (new MaxBarReact()).getMaxArea(hist, hist.length));
+        print("Maximum area is " + (new MaxBarReact()).getMaxArea(hist, hist.length));
         
         // bit wise op
         int x = 6, y = 11;
@@ -349,7 +307,7 @@ public class Driver {
         
         SumFromCombination.printCombinations(new Integer[] {3,9,8,4,5,7,10}, 15);
         
-        BinaryNode tree = AnyBinaryTree.buildExampleTree();
+        BinaryNode<Integer> tree = AnyBinaryTree.buildExampleTree();
         Map<Integer, String> map = AnyBinaryTree.serializeSubtrees(tree);
         print(map.toString());
         
@@ -358,7 +316,7 @@ public class Driver {
         print("Longest palindrome from " + string + ": " + new Palindrome().findLongestPalindrome(string));
         
         // HouseRobbery
-        int houseValue[] = {6, 7, 1, 3, 8, 2, 4};
+        Integer houseValue[] = {6, 7, 1, 3, 8, 2, 4};
         print(houseValue);
         print("HouseRobbery " + HouseRobbery.robMax(houseValue, houseValue.length));
         
@@ -413,11 +371,12 @@ public class Driver {
         print("FlattenBranchedList: ");
         print(FlattenBranchedList.test());
         
-        print("HeapSort: " + HeapSort.test());
+        System.out.print("HeapSort: ");
+        print(HeapSort.test());
         
-        print("JobAssign: " + JobAssign.test());
+        System.out.print("JobAssign: " + JobAssign.test());
         
-        print("NearestSmallerLeft:");
+        System.out.print("NearestSmallerLeft: ");
         NearestSmallerLeft.test();
         
         print("GivenSumOfNumbers: " + GivenArrayAndTarget.test());
@@ -496,7 +455,8 @@ public class Driver {
         
         print("MaximumProductSubarray: " + MaximumProductSubarray.test());
         
-        print("RotateArray: " + RotateArray.test());
+        print("RotateArray: ");
+        print(RotateArray.test());
         
         print("CountSetBits: ");
         CountSetBits.test();
@@ -622,19 +582,24 @@ public class Driver {
         
         print("LongestSubstringWithNoRepeat:");
         LongestSubstringWithNoRepeat.test();
+        
+        print("ReverseListInGroup:");
+        ReverseListInGroup.test();
+        
+        print("EqualSumSubarray: " + EqualSumSubarray.test());
 	}
 	
-	private static Node deleteAllOccurances(Node head, int x)
+	public static Node<Integer> deleteAllOccurances(Node<Integer> head, int x)
     {
         if(head == null) {
-            System.out.println("null");
+            System.out.print("null");
             return null;
         }
         
-        System.out.println("Examine " + head.data);
+        System.out.print("Examine " + head.data);
         
         if(head.data.equals(x)) {
-            System.out.println("Found " + head.data);
+            System.out.print("Found " + head.data);
             
             if(head.next == null) {
                 head.data = 0;
@@ -649,7 +614,7 @@ public class Driver {
         return deleteAllOccurances(head, x);
     }
 	
-	private static int sumAtNLevel( BinaryNode<Integer> node, int levelDecreased) {
+	public static int sumAtNLevel( BinaryNode<Integer> node, int levelDecreased) {
 		if(node == null) return 0;
 		if(levelDecreased == 1) return node.value;
 		
@@ -661,13 +626,13 @@ public class Driver {
 	 * 100 is 01100100, after swapping 0110 and 0100, it becomes
 	 * 01000110, which is 70
 	 */
-	private static byte swapNibbles(byte x) {
+	public static byte swapNibbles(byte x) {
 		return (byte) ((x & 0x0F) << 4 | (x & 0xF0) >> 4);
 	}
 	
-	private static int stringPermutations(String string, String prefix) {
+	public static int stringPermutations(String string, String prefix) {
 		if(string.length()==0){
-            System.out.println(prefix);
+            System.out.print(prefix);
             return 1;
         } else {
         	int count = 0;
@@ -681,7 +646,7 @@ public class Driver {
 	}
 	
 	
-	private static String reverseString(String string) {
+	public static String reverseString(String string) {
 		char[] chars = string.toCharArray();
 		char temp;
 		for(int i = 0; i<chars.length/2; i++) {
@@ -693,15 +658,15 @@ public class Driver {
 		return new String(chars);
 	}
 	
-	private static boolean findTripletAtSum(int[] arr, int sum) {
+	public static boolean findTripletAtSum(int[] arr, int sum) {
 		return false;
 	}
 	
-	private static BinaryNode convertIntArrayToBst(int[] array) {
+	public static BinaryNode<Integer> convertIntArrayToBst(int[] array) {
 		if(array.length == 0) return null;
 		
 		boolean isFirst = true;
-		BinarySearchTree bt = new BinarySearchTree( new BinaryNode(array[0]) );
+		BinarySearchTree bt = new BinarySearchTree( new BinaryNode<Integer>(array[0]) );
 		
 		for(int e : array) {
 			if(isFirst) {
@@ -715,7 +680,7 @@ public class Driver {
 		return bt.root;
 	}
 	
-	private static boolean hasCycleInGraph(BinaryNode n, List<BinaryNode> stack) {
+	public static boolean hasCycleInGraph(BinaryNode<Integer> n, List<BinaryNode<Integer>> stack) {
 		if(n == null) return false;
 		
 		if(stack.contains(n)) {
@@ -727,10 +692,10 @@ public class Driver {
 	}
 	
 	
-	private static List<Integer> mergeSortedArrays(int[] a, int[] b) {
+	public static List<Integer> mergeSortedArrays(int[] a, int[] b) {
 		List<Integer> r = new ArrayList<>();
 		
-		int i=0, j=0, k=0;
+		int i=0, j=0;
 		while( i < a.length && j < b.length) {
 			r.add(a[i] < b[j]? a[i++] : b[j++]);
 		}
@@ -747,7 +712,7 @@ public class Driver {
 		
 		return r;
 	}
-	private static int maxAtBstDepth(BinaryNode<Integer> node, int depth, int atDepth) {
+	public static int maxAtBstDepth(BinaryNode<Integer> node, int depth, int atDepth) {
 		if(node == null) {
 			return 0;
 		}
@@ -776,7 +741,7 @@ public class Driver {
 				rootToLeafPathsMatchSum(node.right, sumAfterReduction - node.value);
 	}
 	
-	private static int bstDepth(BinaryNode<Integer> node, int depth) {
+	public static int bstDepth(BinaryNode<Integer> node, int depth) {
 		if(node == null) {
 			return depth;
 		}
@@ -784,7 +749,7 @@ public class Driver {
 		return Math.max( bstDepth(node.left, depth+1), bstDepth(node.right, depth+1) );
 	}
 	
-	private static boolean findRootToLeafPathSum(BinaryNode<Integer> node, int sum, int expected) {
+	public static boolean findRootToLeafPathSum(BinaryNode<Integer> node, int sum, int expected) {
 		if(node == null) {
 			return false;
 		}
@@ -792,7 +757,7 @@ public class Driver {
 		sum += node.value;
 		
 		if(sum == expected) {
-			System.out.println("Found!");
+			System.out.print("Found!");
 			return true;
 		}
 		
@@ -809,7 +774,7 @@ public class Driver {
 	 * If they are equal, delete the tail; otherwise, append to dest.
 	 * Until all chars consumed from src. 
 	 */
-	private static void removeAdjacentDuplicatesFromString(String string) {
+	static void removeAdjacentDuplicatesFromString(String string) {
 		StringBuilder dest = new StringBuilder();
 		StringBuilder src = new StringBuilder();
 		
@@ -853,7 +818,7 @@ public class Driver {
 			}
 		}
 		
-		System.out.println("result: " + dest.toString());
+		System.out.print("result: " + dest.toString());
 	}
 	
 	/**
@@ -875,30 +840,22 @@ public class Driver {
 	/*
 	 * build a binary tree and print all of the left nodes
 	 */
-	private static void printLeftNodes() {
+	static void printLeftNodes() {
 		/* creating a binary tree and entering the nodes */
         BinarySearchTree tree = new BinarySearchTree();
-        tree.root = new BinaryNode(12);
-        tree.root.left = new BinaryNode(10);
-        tree.root.right = new BinaryNode(30);
-        tree.root.right.left = new BinaryNode(25);
-        tree.root.right.right = new BinaryNode(40);
+        tree.root = new BinaryNode<Integer>(12);
+        tree.root.left = new BinaryNode<Integer>(10);
+        tree.root.right = new BinaryNode<Integer>(30);
+        tree.root.right.left = new BinaryNode<Integer>(25);
+        tree.root.right.right = new BinaryNode<Integer>(40);
  
         tree.leftView();
 	}
-	
-	static  void print(Node n) {
-        if(n == null) return;
-        
-        System.out.println("Node data " + n.data);
-        
-        print(n.next);
-    }
 
-	private static void deleteNode() {
-		Node head = new Node(100);
-		Node temp2 = new Node(200);
-		Node temp3 = new Node(300);
+	static void deleteNode() {
+		Node<Integer> head = new Node<Integer>(100);
+		Node<Integer> temp2 = new Node<Integer>(200);
+		Node<Integer> temp3 = new Node<Integer>(300);
 		
 		head.append(temp2);
 		temp2.append(temp3);
@@ -914,11 +871,11 @@ public class Driver {
 		print(head.toString());
 	}
 	
-	private static long fibocci_recusive(long n) {
+	static long fibocci_recusive(long n) {
 		return n <= 1? n : fibocci_recusive(n - 1) + fibocci_recusive(n - 2);
 	}
 	
-	private static long fibocci_loop(int n) {
+	static long fibocci_loop(int n) {
 		if(n <= 1) return n;
 		
 		long fn_minus_2 = 0;
@@ -934,7 +891,7 @@ public class Driver {
 		return fn;
 	}
 	
-	private static long fibocci_loop_cache(int n) {
+	static long fibocci_loop_cache(int n) {
 		long[] cache = new long[n+1];
 		cache[0] = 0;
 		cache[1] = 1;
@@ -947,7 +904,7 @@ public class Driver {
 	}
 	
 	// 1-based
-	private static String findExcelColumnNameByIndex(int index) {
+	static String findExcelColumnNameByIndex(int index) {
 		StringBuffer sb = new StringBuffer();
 		
 		while(index > 0) {
@@ -977,7 +934,7 @@ public class Driver {
 	 *  latest 0 on the left hand side. Just need to walk 
 	 *  through the list once.  
 	 */
-	private static int segregate (int arr[]) {
+	static int segregate (int arr[]) {
         if (arr == null || arr.length == 0)
             return 0;
 
@@ -996,7 +953,7 @@ public class Driver {
         return j;
 	 }
 	
-	private static void printNextGreaterElement(int[] values) {
+	static void printNextGreaterElement(int[] values) {
 		if(values == null || values.length == 0) {
 			return;
 		}
@@ -1046,12 +1003,12 @@ public class Driver {
 			}
 		}
 		
-		System.out.println("Max sub array: " + Arrays.toString( sub.toArray())  + " from " + Arrays.toString(nums) );
+		System.out.print("Max sub array: " + Arrays.toString( sub.toArray())  + " from " + Arrays.toString(nums) );
 		
 		return sum;
 	}
 	
-	private static int findMaxSumInSubarray_1(int a[]) {
+	static int findMaxSumInSubarray_1(int a[]) {
         int size = a.length;
         int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
  
@@ -1071,14 +1028,13 @@ public class Driver {
 	 * which no random access or re-iteration is possible. Find
 	 * n top numbers.
 	 * 
-	 * I don't think max heap is a good choice here since the stream
-	 * can be infinite. A fixed length of PriorityQueue can be a good fit.
+	 * A fixed length of PriorityQueue can be a good fit.
 	 * The trick here is to sort the numbers in ASCENDING order. Pop a head off,
 	 * which is the smallest, whenever the queue size is more than N. 
 	 * @param numberStream
 	 */
-	private static void trackGreatestNumbers(int[] numberStream, int n) {
-	    PriorityQueue<Integer> pq = new PriorityQueue( new Comparator<Integer>() {
+	static void trackGreatestNumbers(Integer[] numberStream, int n) {
+	    PriorityQueue<Integer> pq = new PriorityQueue<>( new Comparator<Integer>() {
 	        /**
 	         * Note we need to sort numbers in ASCENDING order. And hterefore there
 	         * is no need to proc=vide this Comparator class.
@@ -1108,11 +1064,12 @@ public class Driver {
 	    
 	    print(numberStream);
 	    while(pq.size() > 0) {
-	        System.out.println(pq.poll());
+	        System.out.print(pq.poll());
 	    }
+	    print("");
 	}
 	
-	private static int test(int a, int b) {
+	static int test(int a, int b) {
 		// XOR a nabd 
 //		int c = a ^ b;
 //		

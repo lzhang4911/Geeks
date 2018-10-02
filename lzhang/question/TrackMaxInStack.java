@@ -2,6 +2,8 @@ package lzhang.question;
 
 import java.util.Stack;
 
+import lzhang.util.BaseUtil;
+
 /**
  * Design a Stack that keeps tracking the current max value.
  * 

@@ -45,7 +45,7 @@ public class AnyBinaryTree {
      * @param root
      * @return
      */
-    public static Map<Integer, String> serializeSubtrees(BinaryNode root) {
+    public static Map<Integer, String> serializeSubtrees(BinaryNode<Integer> root) {
         Map<Integer, String> nodeIndexString = new HashMap<>();
         
         serializeSubtrees( 0, root, nodeIndexString);
@@ -64,7 +64,7 @@ public class AnyBinaryTree {
         6=4(, )
         }
     */
-    private static String serializeSubtrees(int nodeIndex, BinaryNode node, Map<Integer, String> nodeIndexString) {
+    private static String serializeSubtrees(int nodeIndex, BinaryNode<Integer> node, Map<Integer, String> nodeIndexString) {
         String text = "";
         if(node == null) {
             return text;

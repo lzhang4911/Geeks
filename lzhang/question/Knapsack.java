@@ -3,6 +3,8 @@ package lzhang.question;
 import java.util.Map;
 import java.util.TreeMap;
 
+import lzhang.util.BaseUtil;
+
 /**
  * N items each has value and weight. Given the weight capacity,
  * pick up the items that have the max possible value.

@@ -37,7 +37,7 @@ public class BinarySearchTree {
 	private int  max_level = 0;
 	 
     // recursive function to print left view
-    private void leftViewUtil(BinaryNode node, int level) {
+    private void leftViewUtil(BinaryNode<Integer> node, int level) {
         // Base Case
         if (node==null) return;
  
