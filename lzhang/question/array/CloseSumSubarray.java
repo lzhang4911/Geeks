@@ -66,15 +66,17 @@ public class CloseSumSubarray extends BaseUtil {
             sum=sum+arr[i];
      
             /*
-             * TODO:
+             * Because we are searching for the LARGEST sum is the closest to the given
+             * value K, such sum should be either equals to K or the the smallest one that
+             * is GREATER than K if all of the pre-sums are sorted in ascending order.
              * 
-             * We need to find both the floor and the ceiling of abs(sum-k)
-             * and choose the one that is closer to k.
+             * Use floor() if the smaller but closest to K is sought for.
              *  
-             * O(logn) to find the floor/ceiling in the sorted set
+             * O(logn) to find the floor/ceiling in the sorted set.
+             * 
+             * Therefore, the overall complexity is O(nLogn)
              */
             Integer ceiling = set.ceiling(Math.abs(sum-k));
-            Integer floor = set.floor(Math.abs(sum-k));
             if(ceiling!=null){
                 result = Math.max(result, sum-ceiling);        
             }

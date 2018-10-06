@@ -16,7 +16,7 @@ public class BaseUtil {
     public static void print(char[] arr) {
     	System.out.print("[");
         for( char i : arr) {
-        	System.out.print(i + ", ");
+        	System.out.print(i + " ");
         }
         System.out.println("]");
     }
@@ -24,7 +24,7 @@ public class BaseUtil {
     public static <T> void print(T[] arr) {
     	System.out.print("[");
         for( T i : arr) {
-        	System.out.print(i + ", ");
+        	System.out.print(i + " ");
         }
         System.out.println("]");
     }

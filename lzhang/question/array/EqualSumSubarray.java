@@ -48,6 +48,7 @@ public class EqualSumSubarray extends BaseUtil {
 			sumIndexMap.put(curSum, i);
 		}
 		
+		print("Subarray not found");
 		return false;
 	}
 

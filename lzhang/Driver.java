@@ -64,6 +64,7 @@ import lzhang.question.array.MaxSumSubarray;
 import lzhang.question.array.MaximumProductSubarray;
 import lzhang.question.array.MergeKsortedArrays;
 import lzhang.question.array.NearestSmallerLeft;
+import lzhang.question.array.RollCharacters;
 import lzhang.question.array.RotateArray;
 import lzhang.question.array.SearchInRotated;
 import lzhang.question.array.SlidingWindowMaximum;
@@ -587,6 +588,8 @@ public class Driver extends BaseUtil {
         ReverseListInGroup.test();
         
         print("EqualSumSubarray: " + EqualSumSubarray.test());
+        print("RollCharacters:");
+        RollCharacters.test();
 	}
 	
 	public static Node<Integer> deleteAllOccurances(Node<Integer> head, int x)
