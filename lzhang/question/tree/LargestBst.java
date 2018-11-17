@@ -63,7 +63,7 @@ public class LargestBst extends BaseUtil {
         Stack<BinaryNode<Integer>> s = new Stack<>();
         
         /*
-         * For each node, the value is its BST size if the subtree is a BST.
+         * For each node, the value in the map is its NodeInfo object if the subtree is a BST.
          * This is also served as visited lookup.
          */
         Map<BinaryNode<Integer>, NodeInfo> subtreeSizeMap = new HashMap<BinaryNode<Integer>, NodeInfo>();

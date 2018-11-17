@@ -80,6 +80,7 @@ public class DLL<T> {
             } else {
                 // prepare head with null prev
                 head.prev = null;
+                head.next = temp.next;
             }
             
             count--;
@@ -118,12 +119,14 @@ public class DLL<T> {
         if(n.prev == null) {
             // n is the head to be removed
             this.pop();
+            
+            // don't decrement the count since pop() already did  it
         } else {
             // re-wire to exclude the current node
             n.prev.append(n.next);
+            
+            count--;
         }
-        
-        count--;
     }
     
     public int size() {

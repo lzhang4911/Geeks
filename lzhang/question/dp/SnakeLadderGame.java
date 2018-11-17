@@ -29,13 +29,18 @@ import lzhang.util.BaseUtil;
  *
  */
 public class SnakeLadderGame extends BaseUtil {
-    static class Vertex {
-        int key;
-        int throwCount;
+    static class Cell {
+    	// 0 - n-1 to name each cell
+        int cellIndex;
+        
+        // keep track of number of throws so far to land in this cell
+        int throwCount = 0;
+        
+        // optional - remember all of the dice face value for all past throws
         List<Integer> diceValues;
         
-        public Vertex(int key, int throwCount) {
-            this.key = key;
+        public Cell(int key, int throwCount) {
+            this.cellIndex = key;
             this.throwCount = throwCount;
             
             diceValues = new ArrayList<Integer>();
@@ -51,7 +56,7 @@ public class SnakeLadderGame extends BaseUtil {
         
         @Override
         public String toString() {
-            return String.format("key: %d, throwCount: %d, diceValues: %s", key, throwCount, 
+            return String.format("key: %d, throwCount: %d, diceValues: %s", cellIndex, throwCount, 
                     Arrays.toString(diceValues.toArray(new Integer[0])));
         }
     }
@@ -97,40 +102,45 @@ public class SnakeLadderGame extends BaseUtil {
         if(moves == null || n <= 0) return -1;
         
         // create queue for DFS
-        Queue<Vertex> queue = new LinkedList<Vertex>();
+        Queue<Cell> queue = new LinkedList<Cell>();
         
-        // keep track which have been visited alreay
+        // keep track which have been visited alredy
         boolean[] visited = new boolean[n];
         Arrays.fill(visited, false);
         
         // push the source vertex to queue
-        queue.add( new Vertex(0, 0) );
+        queue.add( new Cell(0, 0) );
         visited[0] = true;
         
-        int vertexKey;
-        Vertex v = null;
+        int cellIndex;
+        Cell v = null;
         while(!queue.isEmpty()) {
             v = queue.poll();
-            if(v.key == n-1) {
+            if(v.cellIndex == n-1) {
                 // reached destination;
                 break;
             }
             
             // for each adjacent vertices (one for each dice face value)
-            for(int i = v.key+1; i <= (v.key+6) && i < n; i++) {
+            for(int i = v.cellIndex+1; i <= (v.cellIndex+6) && i < n; i++) {
                 if(visited[i]) continue;
                 
                 // determine which cell to end up with
-                vertexKey = (moves[i] == 0? i : moves[i]);
-                if(vertexKey < 0 || vertexKey >= n) {
-                    vertexKey = v.key;
+                cellIndex = (moves[i] == 0? i : moves[i]);
+                if(cellIndex < 0 || cellIndex >= n) {
+                	// don't move - always stay within the board
+                    cellIndex = v.cellIndex;
                 }
                 
-                Vertex t = new Vertex(vertexKey, v.throwCount + 1);
-                t.addAll(v.diceValues);
-                t.addDiceValue(i - v.key);
-                queue.add( t );
+                Cell t = new Cell(cellIndex, v.throwCount + 1);
                 
+                // carry over all past throws
+                t.addAll(v.diceValues);
+                
+                // plus this throw
+                t.addDiceValue(i - v.cellIndex);
+                
+                queue.add( t );
                 visited[i] = true;
             }
         }

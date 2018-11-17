@@ -9,7 +9,7 @@ import lzhang.question.linkedlist.DLL;
 /**
  * As a cache utility, the only 2 methods are get() and put().
  *
- * With DDL, every operation is in O(n)
+ * With DDL, every operation is in O(1)
  * 
  * @author lzhang
  *
@@ -24,10 +24,10 @@ public class LRU2 {
     private Map<Integer, Node<Integer>> map;
     
     // cache size limit
-    private int size;
+    private int limit;
     
     public LRU2(int size) {
-        this.size = size;
+        this.limit = size;
         
         this.recentlyUsedQueue = new DLL<Integer>();
         this.map = new HashMap<Integer, Node<Integer>>();
@@ -54,7 +54,7 @@ public class LRU2 {
     }
     
     public void put(Integer key, int v) {
-        if(map.size() >= size) {
+        if(map.size() >= limit) {
             // purge the oldest one
             Node<Integer> n = recentlyUsedQueue.pop();
             

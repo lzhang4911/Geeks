@@ -50,37 +50,19 @@ public class FindNextBiggerKey {
         
         int ret = -1;
         BinaryNode<Integer> node;
-        boolean inLeftTree = true;
         if(key < bst.value) {
-            inLeftTree = true;
             node = bst;
         } else { // including key == bst.value
-            inLeftTree = false;
             node = bst.right;
         }
         
         // start inorder traversal
         addAllLefties(node, s);
         
-        if(inLeftTree) {
-            /* 
-             * The node on the top of stack is smallest. If it's still bigger
-             * than the key, that means that is the one.
-             */
-            int nextGreaterKey = s.peek().value;
-            if(nextGreaterKey > key) {
-                return nextGreaterKey;
-            }
-            
-            /*
-             * Otherwise, the one on the top must be less, then looping
-             * through the stack below will see a bigger one eventually.
-             */
-        } 
-        
         while(!s.isEmpty()) {
             node = s.pop();
             
+            // the very first time the bigger node is the immediate successor!
             if(node.value > key) {
                 // this is the one - this logic works for both subtrees
                 ret = node.value;
@@ -98,6 +80,8 @@ public class FindNextBiggerKey {
      * just do the basic BFS traversal in iteration using a constant one
      * pointer for the answer.
      * 
+     * Time: O(logn), space: O(1)
+     * 
      * @param bst
      * @param key
      * @return
@@ -106,23 +90,21 @@ public class FindNextBiggerKey {
         BinaryNode<Integer> ans = null;
         
         while(bst != null) {
-            if(bst.value > key) {
+            if(key < bst.value) {
                 // must be in left branch including the current node as well
                 ans = bst;
                 bst = bst.left;
-            } else if(bst.value == key) {
-                return key;
             } else {
                 // the searched node may be in right branch
                 bst = bst.right;
             }
         }
         
-        if(ans != null) {
-            return ans.value;
+        if(ans == null) {
+            return -1;
+        } else {
+        	return ans.value;
         }
-        
-        return -1;
     }
     
     /**
@@ -137,4 +119,14 @@ public class FindNextBiggerKey {
             node = node.left;
         }
     }
+    
+    /**
+     * There is another situation where both root and a node is given, find the inorder
+     * successor of the said node.
+     * 
+     * The solution to such question is divided into 2 situation:
+     * (1) if node.right != null, find the left most node from subtree node.right;
+     * (2) else, the successor would be the closest ancestor who is a left node of
+     *     from its own family tree. This is exactly like order1solution().
+     */
 }

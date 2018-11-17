@@ -10,16 +10,17 @@ import lzhang.util.BaseUtil;
  *
  */
 public class BstOperation extends BaseUtil {
+	private BinaryNode<Integer> root = null;
+	
     public static void test() {
         CreateTreeFromArray util = new CreateTreeFromArray();
         int[] arr = {1, 3, 5, 7, 9, 11, 13};
         int start = 0;
         int end = arr.length - 1;
         
-        BinaryNode<Integer> root = util.buildBalancedBstFromSortedArray(arr, start, end);
-        BinaryNode.levelOrderPrint(root);
-        
         BstOperation p = new BstOperation();
+        p.root = util.buildBalancedBstFromSortedArray(arr, start, end);
+        BinaryNode.levelOrderPrint(p.root);
         
 //        print("after deleting leaf node 5:");
 //        BinaryNode<Integer>  res = p.deleteNode(root, 5);
@@ -30,17 +31,30 @@ public class BstOperation extends BaseUtil {
 //        BinaryNode.levelOrderPrint(res);
         
         print("after deleting root node 7:");
-        BinaryNode<Integer> res = p.deleteNode(root, 7);
+        BinaryNode<Integer> res = p.deleteNode(p.root, 7);
         BinaryNode.levelOrderPrint(res);
     }
 
-    private BinaryNode<Integer> deleteNode(BinaryNode<Integer> root, int key) {
-        if(root == null) return root;
+    /**
+     * AFter deleting a node, the tree must still be BST.
+     * 
+     * There are 3 different situations:
+     * (https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/)
+     * 
+     * 1. node with 0 child (leaf node): simply drop it;
+     * 2. node with one child: replace the node with that child;
+     * 3. node with both children: find its inorder successor, replace its value with this successor, and then delete that successor.
+     * @param node
+     * @param key
+     * @return
+     */
+    private BinaryNode<Integer> deleteNode(BinaryNode<Integer> node, int key) {
+        if(node == null) return node;
         
-        if(key < root.value) {
-            root.left = this.deleteNode(root.left, key);
-        } else if(key > root.value) {
-            root.right = this.deleteNode(root.right, key);
+        if(key < node.value) {
+            node.left = this.deleteNode(node.left, key);
+        } else if(key > node.value) {
+            node.right = this.deleteNode(node.right, key);
         } else {
             /*
              * The node to be deleted is found. There are 3 situations:
@@ -49,23 +63,26 @@ public class BstOperation extends BaseUtil {
              * - the node has 2 children
              */
             
-            // node with only one child or no child
-            if (root.left == null) {
-                return root.right;
-            } else if (root.right == null) {
-                return root.left;
+            if (node.left == null) {
+            	// this is either a leaf node or one with right child only
+                return node.right;
+            } else if (node.right == null) {
+            	// node with left child only
+                return node.left;
             } else {
                 /*
                  * The node has both children: 
                  * - replace this node with its inorder successor;
                  * - delete the successor node
                  */
-                root.value = getInorderSuccessor(root).value;
-                root.right = deleteNode(root.right, root.value);
+                node.value = getInorderSuccessor(root, node).value;
+                
+                // delete the successor node (from its right child)
+                node.right = deleteNode(node.right, node.value);
             }
         }
         
-        return root;
+        return node;
     }
     
     /**
@@ -73,19 +90,37 @@ public class BstOperation extends BaseUtil {
      * in the inorder traversal array if such an array is available.
      * 
      * If searching from the BST, the successor is the left most node from
-     * its right subtree.
+     * its right subtree, the smallest node in its right sub-tree.
+     * 
+     * FIXME (2018/11/02): This is incomplete! This doesn't work for a node that doesn't 
+     * have a right branch. For such node, its immediate successor can only be found from
+     * its ancestors that is the first left descendent of its upper family tree.
      * 
      * @param node
      * @return
      */
-    private BinaryNode<Integer> getInorderSuccessor(BinaryNode<Integer> node) {
-        node = node.right;
-        while(node.left != null) {
-            node = node.left;
-        }
+    private BinaryNode<Integer> getInorderSuccessor(BinaryNode<Integer>  root, BinaryNode<Integer> node) {
+    	BinaryNode<Integer> successor = null;
+    	
+    	if(node.right != null) {
+    		// successor is the left most node in its right sub-tree
+    		successor = node.right;
+    		while(successor.left != null) {
+	        	successor = successor.left;
+	        }
+    	} else {
+    		// find the last left-most ancestor
+    		while(root != null) {
+    			if(node.value < root.value) {
+    				successor = root;
+    				root = root.left;
+    			} else {
+    				root = root.right;
+    			}
+    		}
+    	}
         
-        // this must be the left most node
-        return node;
+        return successor;
     }
     
     /**

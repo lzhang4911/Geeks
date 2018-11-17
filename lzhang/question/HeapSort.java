@@ -1,5 +1,12 @@
 package lzhang.question;
 
+/**
+ * Heap sort has 2 parts: turn the array to a max heap first, then rearrange the array by swapping arr[0] with
+ * arr[n-1-i].
+ * 
+ * @author leonzhan
+ *
+ */
 public class HeapSort {
     public static Integer[] test() {
         //int arr[] = {12, 11, 13, 5, 6, 7};
